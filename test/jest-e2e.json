@@ -1,0 +1,25 @@
+{
+  "moduleFileExtensions": ["js", "json", "ts"],
+  "rootDir": "..",
+  "testRegex": "test/e2e/.*\\.e2e-spec\\.ts$",
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "setupFiles": ["reflect-metadata"],
+  "globalSetup": "<rootDir>/test/support/global-setup.ts",
+  "globalTeardown": "<rootDir>/test/support/global-teardown.ts",
+  "testEnvironment": "node",
+  "testTimeout": 30000,
+  "collectCoverageFrom": [
+    "src/**/*.ts",
+    "!src/**/*.module.ts",
+    "!src/**/index.ts",
+    "!src/main.ts",
+    "!src/database/**",
+    "!src/bootstrap/**",
+    "!src/**/*.spec.ts",
+    "!src/**/dto/**",
+    "!src/**/entities/**"
+  ],
+  "coverageDirectory": "<rootDir>/coverage-e2e"
+}

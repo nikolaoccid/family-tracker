@@ -1,0 +1,22 @@
+services:
+  familydb:
+    image: postgres:15
+    container_name: familydb
+    restart: always
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-familytracker}
+      POSTGRES_USER: ${POSTGRES_USER:-familyuser}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    volumes:
+      - familydb_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - family-network
+
+volumes:
+  familydb_data:
+
+networks:
+  family-network:
+    driver: bridge
